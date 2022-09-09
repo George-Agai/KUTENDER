@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React from 'react';
+//import logo from './logo.svg';
+import Tenders from './components/tenderpost/tenders';
+import { useState } from "react";
+import BiderForm from './components/biderpostform/BiderForm';
+import {Helmet} from 'react-helmet';
 import './App.css';
+import Home from "./components/home/Home";
 
 function App() {
+  const [connectHome,setConnectHome] = useState(true)
+  //{connectHome &&<Home onTenders={setConnectHome}/> }
+  //    {!connectHome &&<Tenders /> }
+     
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {connectHome &&<Home onTenders={setConnectHome}/> }
+     {!connectHome &&<Tenders /> }
     </div>
   );
 }
